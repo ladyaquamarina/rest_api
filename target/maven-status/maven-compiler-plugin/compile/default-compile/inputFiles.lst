@@ -1,0 +1,14 @@
+D:\stazh_java\stazhirovka\rest_api\src\main\java\model\File.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\servlets\FileServlet.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\servlets\UserServlet.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\model\User.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\EventRepository.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\model\Event.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\utils\HibernateUtils.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\hibernate\HibernateEventRepositoryImpl.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\GenericRepository.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\hibernate\HibernateUserRepositoryImpl.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\servlets\EventServlet.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\hibernate\HibernateFileRepositoryImpl.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\UserRepository.java
+D:\stazh_java\stazhirovka\rest_api\src\main\java\repository\FileRepository.java
