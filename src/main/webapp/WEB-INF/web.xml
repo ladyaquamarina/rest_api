@@ -20,14 +20,14 @@
 
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/user</url-pattern>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FileServlet</servlet-name>
-        <url-pattern>/file</url-pattern>
+        <url-pattern>/files</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EventServlet</servlet-name>
-        <url-pattern>/event</url-pattern>
+        <url-pattern>/events</url-pattern>
     </servlet-mapping>
 </web-app>
