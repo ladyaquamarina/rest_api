@@ -19,9 +19,10 @@
         <mysql-connector-j-version>8.0.33</mysql-connector-j-version>
         <hibernate-core-version>5.6.15.Final</hibernate-core-version>
         <hibernate-entitymanager-version>5.6.15.Final</hibernate-entitymanager-version>
-        <javax-servlet-api-version>2.5</javax-servlet-api-version>
+        <javax-servlet-api-version>4.0.1</javax-servlet-api-version>
         <tomcat.plugin.version>2.2</tomcat.plugin.version>
         <flyway-maven-plugin-version>9.21.1</flyway-maven-plugin-version>
+        <gson-version>2.10.1</gson-version>
     </properties>
 
     <dependencies>
@@ -43,7 +44,7 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <artifactId>javax.servlet-api</artifactId>
             <version>${javax-servlet-api-version}</version>
             <scope>provided</scope>
         </dependency>
@@ -52,22 +53,11 @@
             <artifactId>flyway-maven-plugin</artifactId>
             <version>${flyway-maven-plugin-version}</version>
         </dependency>
-
-<!--        <dependency>-->
-<!--            <groupId>jakarta.xml.bind</groupId>-->
-<!--            <artifactId>jakarta.xml.bind-api</artifactId>-->
-<!--            <version>4.0.0</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jaxb</groupId>-->
-<!--            <artifactId>jaxb-runtime</artifactId>-->
-<!--            <version>4.0.2</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>jakarta.xml.bind</groupId>-->
-<!--            <artifactId>jakarta.xml.bind-api</artifactId>-->
-<!--            <version>4.0.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>${gson-version}</version>
+        </dependency>
 
     </dependencies>
 

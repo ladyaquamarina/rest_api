@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:00:20:01 +0300] "GET //api/v1/events?id=1 HTTP/1.1" 200 56 http-bio-8088-exec-2 3410
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:00:20:14 +0300] "GET //EventServlet HTTP/1.1" 404 977 http-bio-8088-exec-3 3
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:00:22:56 +0300] "GET //api/v1/events HTTP/1.1" 500 3722 http-bio-8088-exec-6 51
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:00:27:37 +0300] "GET //api/v1/events HTTP/1.1" 200 114 http-bio-8088-exec-2 3057
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:00:28:59 +0300] "GET //api/v1/events HTTP/1.1" 500 3722 http-bio-8088-exec-2 2911
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:23:53:38 +0300] "GET //api/v1/events HTTP/1.1" 500 3722 http-bio-8088-exec-2 3880
+0:0:0:0:0:0:0:1 - - [31/Aug/2023:23:53:46 +0300] "GET //api/v1/events?id=1 HTTP/1.1" 200 30 http-bio-8088-exec-4 241

@@ -1,6 +1,6 @@
 package repository.hibernate;
 
-import model.File;
+import model.FileEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -11,39 +11,39 @@ import java.util.List;
 
 public class HibernateFileRepositoryImpl implements FileRepository {
     @Override
-    public File create(File file) {
+    public FileEntity create(FileEntity fileEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(file);
+            session.save(fileEntity);
             transaction.commit();
-            return file;
+            return fileEntity;
         }
     }
 
     @Override
-    public File getById(Integer integer) {
+    public FileEntity getById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
-            Query<File> query = session.createQuery(
-                    "FROM File f WHERE f.id = :integer");
+            Query<FileEntity> query = session.createQuery(
+                    "FROM FileEntity f WHERE f.id = :integer");
             query.setParameter("integer", integer);
             return query.list().size() > 0 ? query.list().get(0) : null;
         }
     }
 
     @Override
-    public List<File> getAll() {
+    public List<FileEntity> getAll() {
         try (Session session = HibernateUtils.getSession()) {
-            return session.createQuery("FROM File").list();
+            return session.createQuery("FROM FileEntity").list();
         }
     }
 
     @Override
-    public File update(File file) {
+    public FileEntity update(FileEntity fileEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.update(file);
+            session.update(fileEntity);
             transaction.commit();
-            return file;
+            return fileEntity;
         }
     }
 
@@ -51,9 +51,9 @@ public class HibernateFileRepositoryImpl implements FileRepository {
     public void deleteById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            File file = new File();
-            file.setId(integer);
-            session.delete(file);
+            FileEntity fileEntity = new FileEntity();
+            fileEntity.setId(integer);
+            session.delete(fileEntity);
             transaction.commit();
         }
     }

@@ -1,6 +1,6 @@
 package repository.hibernate;
 
-import model.Event;
+import model.EventEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -11,19 +11,19 @@ import java.util.List;
 
 public class HibernateEventRepositoryImpl implements EventRepository {
     @Override
-    public Event create(Event event) {
+    public EventEntity create(EventEntity eventEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(event);
+            session.save(eventEntity);
             transaction.commit();
-            return event;
+            return eventEntity;
         }
     }
 
     @Override
-    public Event getById(Integer integer) {
+    public EventEntity getById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
-            Query<Event> query = session.createQuery("FROM Event e " +
+            Query<EventEntity> query = session.createQuery("FROM EventEntity e " +
                     "LEFT JOIN FETCH e.user " +
                     "LEFT JOIN FETCH e.file " +
                     "WHERE e.id = :integer");
@@ -33,19 +33,19 @@ public class HibernateEventRepositoryImpl implements EventRepository {
     }
 
     @Override
-    public List<Event> getAll() {
+    public List<EventEntity> getAll() {
         try (Session session = HibernateUtils.getSession()) {
-            return session.createQuery("FROM Event").list();
+            return session.createQuery("FROM EventEntity").list();
         }
     }
 
     @Override
-    public Event update(Event event) {
+    public EventEntity update(EventEntity eventEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.update(event);
+            session.update(eventEntity);
             transaction.commit();
-            return event;
+            return eventEntity;
         }
     }
 
@@ -53,11 +53,11 @@ public class HibernateEventRepositoryImpl implements EventRepository {
     public void deleteById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            Event event = new Event();
-            event.setId(integer);
-            event.setUser(null);
-            event.setFile(null);
-            session.delete(event);
+            EventEntity eventEntity = new EventEntity();
+            eventEntity.setId(integer);
+            eventEntity.setUser(null);
+            eventEntity.setFile(null);
+            session.delete(eventEntity);
             transaction.commit();
         }
     }

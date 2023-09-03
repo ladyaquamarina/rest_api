@@ -1,6 +1,6 @@
 package repository.hibernate;
 
-import model.User;
+import model.UserEntity;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
@@ -11,39 +11,39 @@ import java.util.List;
 
 public class HibernateUserRepositoryImpl implements UserRepository {
     @Override
-    public User create(User user) {
+    public UserEntity create(UserEntity userEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.save(user);
+            session.save(userEntity);
             transaction.commit();
-            return user;
+            return userEntity;
         }
     }
 
     @Override
-    public User getById(Integer integer) {
+    public UserEntity getById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
-            Query<User> query = session.createQuery(
-                    "FROM User u LEFT JOIN FETCH u.events WHERE u.id = :integer");
+            Query<UserEntity> query = session.createQuery(
+                    "FROM UserEntity u LEFT JOIN FETCH u.events WHERE u.id = :integer");
             query.setParameter("integer", integer);
             return query.list().size() > 0 ? query.list().get(0) : null;
         }
     }
 
     @Override
-    public List<User> getAll() {
+    public List<UserEntity> getAll() {
         try (Session session = HibernateUtils.getSession()) {
-            return session.createQuery("FROM User").list();
+            return session.createQuery("FROM UserEntity").list();
         }
     }
 
     @Override
-    public User update(User user) {
+    public UserEntity update(UserEntity userEntity) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            session.update(user);
+            session.update(userEntity);
             transaction.commit();
-            return user;
+            return userEntity;
         }
     }
 
@@ -51,9 +51,9 @@ public class HibernateUserRepositoryImpl implements UserRepository {
     public void deleteById(Integer integer) {
         try (Session session = HibernateUtils.getSession()) {
             Transaction transaction = session.beginTransaction();
-            User user = new User();
-            user.setId(integer);
-            session.delete(user);
+            UserEntity userEntity = new UserEntity();
+            userEntity.setId(integer);
+            session.delete(userEntity);
             transaction.commit();
         }
     }

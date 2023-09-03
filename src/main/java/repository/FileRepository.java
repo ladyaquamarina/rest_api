@@ -1,6 +1,6 @@
 package repository;
 
-import model.File;
+import model.FileEntity;
 
-public interface FileRepository extends GenericRepository<File, Integer>{
+public interface FileRepository extends GenericRepository<FileEntity, Integer>{
 }

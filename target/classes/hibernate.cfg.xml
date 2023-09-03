@@ -12,9 +12,9 @@
         <property name="hibernate.connection.password">Tretyakmd134425009</property>
 
         <property name="show_sql">true</property>
-        <mapping class="model.Event"/>
-        <mapping class="model.File"/>
-        <mapping class="model.User"/>
+        <mapping class="model.EventEntity"/>
+        <mapping class="model.FileEntity"/>
+        <mapping class="model.UserEntity"/>
 
     </session-factory>
 </hibernate-configuration>

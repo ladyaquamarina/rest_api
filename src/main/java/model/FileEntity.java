@@ -3,8 +3,8 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "file")
-public class File {
+@Table(name = "files")
+public class FileEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ public class File {
     @Column(name = "file_path")
     private String filePath;
 
-    public File() {}
+    public FileEntity() {}
 
-    public File(String name, String filePath) {
+    public FileEntity(String name, String filePath) {
         this.name = name;
         this.filePath = filePath;
     }
@@ -46,12 +46,5 @@ public class File {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
-    }
-
-    @Override
-    public String toString() {
-        return "id=" + id +
-                ", name=" + name +
-                ", filePath='" + filePath + '\'';
     }
 }

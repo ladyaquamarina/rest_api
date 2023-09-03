@@ -1,10 +1,13 @@
 package model;
 
+import com.google.gson.annotations.JsonAdapter;
+import model.jsonAdapters.UserJsonAdapter;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "event")
-public class Event {
+@Table(name = "events")
+public class EventEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,14 +16,15 @@ public class Event {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
-    private User user;
+    @JsonAdapter(UserJsonAdapter.class)
+    private UserEntity user;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     @JoinColumn(name = "file_id")
-    private File file;
-    public Event() {}
+    private FileEntity file;
+    public EventEntity() {}
 
-    public Event(User user, File file) {
+    public EventEntity(UserEntity user, FileEntity file) {
         this.user = user;
         this.file = file;
     }
@@ -33,26 +37,19 @@ public class Event {
         this.id = id;
     }
 
-    public User getUser() {
+    public UserEntity getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UserEntity user) {
         this.user = user;
     }
 
-    public File getFile() {
+    public FileEntity getFile() {
         return file;
     }
 
-    public void setFile(File file) {
+    public void setFile(FileEntity file) {
         this.file = file;
-    }
-
-    @Override
-    public String toString() {
-        return "id=" + id +
-                ", user's id=" + user.getId() +
-                ", file's id=" + file.getId();
     }
 }

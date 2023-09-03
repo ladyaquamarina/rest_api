@@ -1,6 +1,6 @@
 package repository;
 
-import model.User;
+import model.UserEntity;
 
-public interface UserRepository extends GenericRepository<User, Integer>{
+public interface UserRepository extends GenericRepository<UserEntity, Integer>{
 }

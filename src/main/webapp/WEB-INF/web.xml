@@ -7,27 +7,27 @@
 
     <servlet>
         <servlet-name>UserServlet</servlet-name>
-        <servlet-class>servlets.UserServlet</servlet-class>
+        <servlet-class>rest.UserServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>FileServlet</servlet-name>
-        <servlet-class>servlets.FileServlet</servlet-class>
-    </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>FileServlet</servlet-name>-->
+<!--        <servlet-class>rest.FileServlet</servlet-class>-->
+<!--    </servlet>-->
     <servlet>
         <servlet-name>EventServlet</servlet-name>
-        <servlet-class>servlets.EventServlet</servlet-class>
+        <servlet-class>rest.EventServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
-        <url-pattern>/users</url-pattern>
+        <url-pattern>/api/v1/users</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>FileServlet</servlet-name>
-        <url-pattern>/files</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>FileServlet</servlet-name>-->
+<!--        <url-pattern>/api/v1/files</url-pattern>-->
+<!--    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>EventServlet</servlet-name>
-        <url-pattern>/events</url-pattern>
+        <url-pattern>/api/v1/events</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -1,12 +1,15 @@
 package model;
 
+import com.google.gson.annotations.JsonAdapter;
+import model.jsonAdapters.EventJsonAdapter;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "users")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,14 +20,15 @@ public class User {
     private String name;
 
     @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-    @JoinTable(name = "event",
+    @JoinTable(name = "events",
             joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "event_id")})
-    private List<Event> events;
+    @JsonAdapter(EventJsonAdapter.class)
+    private List<EventEntity> events;
 
-    public User() {}
+    public UserEntity() {}
 
-    public User(String name) {
+    public UserEntity(String name) {
         this.name = name;
         this.events = new ArrayList<>();
     }
@@ -45,32 +49,19 @@ public class User {
         this.name = name;
     }
 
-    public List<Event> getEvents() {
+    public List<EventEntity> getEvents() {
         return events;
     }
 
-    public void setEvents(List<Event> events) {
-        this.events = events;
+    public void setEvents(List<EventEntity> eventEntities) {
+        this.events = eventEntities;
     }
 
-    public void addEvent(Event event) {
-        this.events.add(event);
+    public void addEvent(EventEntity eventEntity) {
+        this.events.add(eventEntity);
     }
 
     public void deleteEvent(int id) {
-        for (Event e : events) {
-            if (e.getId() == id) {
-                events.remove(e);
-                break;
-            }
-        }
-    }
-
-    @Override
-    public String toString() {
-        List<Integer> ids = events.stream().map(Event::getId).toList();
-        return "id=" + id +
-                ", name=" + name +
-                ", events' ids=" + ids;
+        events = events.stream().filter(e -> e.getId() != id).toList();
     }
 }
